@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("./fonts/DMSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("./fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("./fonts/DMSans-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("./fonts/DMSans-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "DM Sans", sans-serif !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

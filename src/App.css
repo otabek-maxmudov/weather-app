@@ -1,0 +1,25 @@
+.CircularProgressbar-text {
+  transform: translateX(-5%);
+}
+
+.CircularProgressbar-path {
+  stroke-width: 10;
+  position: absolute !important;
+  overflow: visible !important;
+}
+
+svg.CircularProgressbar {
+  overflow: visible;
+  width: calc(var(--letter-width) * var(--letter-count));
+  height: 100%;
+}
+
+.DarkModeToggle {
+  height: 100% !important;
+}
+
+.DarkModeToggle > div {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
