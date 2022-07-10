@@ -1,6 +1,5 @@
 import moment from "moment";
 import { connect } from "react-redux";
-import { getWeekdaysForecast } from "../../Redux/Actions/Actions";
 import { icons } from "../../functions/Icons";
 
 const Weekdays = ({ weekdaysForecast, degree_C }) => {
@@ -31,4 +30,4 @@ const Weekdays = ({ weekdaysForecast, degree_C }) => {
   );
 };
 
-export default connect(({ app }) => ({ ...app }), { getWeekdaysForecast })(Weekdays);
+export default connect(({ app }) => ({ ...app }))(Weekdays);

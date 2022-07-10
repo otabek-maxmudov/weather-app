@@ -7,7 +7,6 @@ import {
   SET_WEEKDAYS_FORECAST,
   SET_DEGREE,
   SET_CORDINATES,
-  SET_LOADING,
 } from "../Actions/Types";
 
 /* eslint-disable import/no-anonymous-default-export */
@@ -19,8 +18,7 @@ const initialState = {
   astro_data: {},
   weekdaysForecast: [],
   degree_C: true,
-  cords: [],
-  loading: false,
+  cords: [55.755826, 37.6173],
 };
 
 export default (state = initialState, action) => {
@@ -64,11 +62,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         cords: action.payload,
-      };
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: action.payload,
       };
 
     default:

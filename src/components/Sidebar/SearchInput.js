@@ -2,10 +2,12 @@ import { AiOutlineClear } from "react-icons/ai";
 import { AutoComplete } from "antd";
 import moment from "moment";
 import { connect } from "react-redux";
-import { lazy } from "react";
-const { getCurrentAstronomy, getCurrentForecast, getSearchResult, getWeekdaysForecast } = lazy(() =>
-  import("../../Redux/Actions/Actions")
-);
+import {
+  getCurrentAstronomy,
+  getCurrentForecast,
+  getSearchResult,
+  getWeekdaysForecast,
+} from "../../Redux/Actions/Actions";
 
 const SearchInput = ({
   getCurrentForecast,
@@ -13,7 +15,6 @@ const SearchInput = ({
   searchResult,
   getCurrentAstronomy,
   getWeekdaysForecast,
-  currentMode,
 }) => {
   const onSearch = searchText => getSearchResult("search.json", { q: searchText });
 

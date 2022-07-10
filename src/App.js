@@ -1,13 +1,21 @@
 import { Spin } from "antd";
-import { lazy, Suspense } from "react";
+import moment from "moment";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { RiLoader2Fill } from "react-icons/ri";
 import { connect } from "react-redux";
 import "./App.css";
+import { getCurrentAstronomy, getCurrentForecast, getWeekdaysForecast, setCordinates } from "./Redux/Actions/Actions";
 
 const Mainpage = lazy(() => import("./components/MainPage"));
 const Sidebar = lazy(() => import("./components/Sidebar/Sidebar"));
 
-const App = ({ currentMode }) => {
+const App = ({ currentMode, getCurrentAstronomy, getCurrentForecast, getWeekdaysForecast, setCordinates, cords }) => {
+  useEffect(() => {
+    getCurrentForecast("current.json", { q: `${cords[0]},${cords[1]}` });
+    getCurrentAstronomy("astronomy.json", { q: `${cords[0]},${cords[1]}`, dt: moment().format("YYYY-MM-DD") });
+    getWeekdaysForecast("forecast/daily", { lat: cords[0], lon: cords[1] });
+  }, [cords]);
+
   const renderLoader = () => (
     <div className="w-full h-screen flex justify-center items-center">
       <Spin indicator={<RiLoader2Fill className="animate-spin" />} spinning tip="Loading..." />
@@ -24,4 +32,9 @@ const App = ({ currentMode }) => {
   );
 };
 
-export default connect(({ app }) => ({ ...app }))(App);
+export default connect(({ app }) => ({ ...app }), {
+  getCurrentAstronomy,
+  getCurrentForecast,
+  getWeekdaysForecast,
+  setCordinates,
+})(App);

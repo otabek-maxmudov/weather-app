@@ -1,14 +1,14 @@
 const TodayHighlightsComp = ({ title, children, numbers, measure, progressIndicator, icon, wind_dir }) => {
   return (
     <div
-      className={`lg:h-40 sm:h-36 rounded-2xl bg-white dark:bg-gray-700 py-3 lg:px-5 sm:px-4 text-gray-400 transition-colors`}>
+      className={`h-28 sm:col-span-1 lg:h-40 sm:h-36 rounded-2xl bg-white dark:bg-gray-700 py-3 px-3 lg:px-5 sm:px-4 text-gray-400 transition-colors`}>
       <p className="lg:text-sm sm:text-xs">{title}</p>
       {progressIndicator ? (
         <div className="flex justify-between items-center">
           <h1 className="lg:text-5xl sm:text-3xl font-semibold lg:mt-10 sm:mt-14 dark:text-gray-100 transition-colors relative">
             {numbers} <span className="lg:text-2xl sm:text-xl font-normal absolute top-0">{measure}</span>
           </h1>
-          <div className="w-7 h-20 border rounded-full rotate-180 py-1 ">
+          <div className="w-7 h-14 xl:h-20 lg:h-20 md:h-20 sm:h-20 border rounded-full rotate-180 py-1 ">
             <div
               style={{ width: "100%", height: `${numbers > 100 ? 100 : numbers}%` }}
               className={"relative pt-2 pb-2 flex justify-center"}>
@@ -19,7 +19,7 @@ const TodayHighlightsComp = ({ title, children, numbers, measure, progressIndica
       ) : children ? (
         children
       ) : (
-        <div className="h-24 flex lg:flex-row sm:flex-col lg:items-end sm:items-center justify-between">
+        <div className="h-24 flex justify-around lg:flex-row sm:flex-col lg:items-end sm:items-center ">
           <h1 className="lg:text-5xl sm:text-3xl m-0 font-semibold dark:text-gray-100 transition-colors">
             {numbers} <span className="lg:text-base sm:text-xs font-normal">{measure}</span>
           </h1>

@@ -1,7 +1,6 @@
 import api from "../../functions/api";
 import {
   SET_CURRENT_MODE,
-  SET_LOADING,
   SET_CURRENT_FORECAST,
   SET_LOCATION,
   SET_SEARCH_RESULT,
@@ -12,10 +11,6 @@ import {
 } from "./Types";
 
 export const getCurrentForecast = (url, params) => async dispatch => {
-  dispatch({
-    type: SET_LOADING,
-    payload: true,
-  });
   const res = await api(url, "GET", params, "wa");
 
   if (res && res.status === 200) {
@@ -32,18 +27,9 @@ export const getCurrentForecast = (url, params) => async dispatch => {
       payload: res.data.astronomy?.astro,
     });
   }
-  dispatch({
-    type: SET_LOADING,
-    payload: false,
-  });
 };
 
 export const getCurrentAstronomy = (url, params) => async dispatch => {
-  dispatch({
-    type: SET_LOADING,
-    payload: true,
-  });
-
   const res = await api(url, "GET", params, "wa");
 
   if (res && res.status === 200) {
@@ -52,11 +38,6 @@ export const getCurrentAstronomy = (url, params) => async dispatch => {
       payload: res.data.astronomy.astro,
     });
   }
-
-  dispatch({
-    type: SET_LOADING,
-    payload: false,
-  });
 };
 
 export const setCurrentMode = data => dispatch => {
@@ -81,11 +62,6 @@ export const setCordinates = data => dispatch => {
 };
 
 export const getSearchResult = (url, params) => async dispatch => {
-  dispatch({
-    type: SET_LOADING,
-    payload: true,
-  });
-
   const res = await api(url, "GET", params, "wa");
 
   if (res && res.status === 200) {
@@ -94,19 +70,9 @@ export const getSearchResult = (url, params) => async dispatch => {
       payload: res.data,
     });
   }
-
-  dispatch({
-    type: SET_LOADING,
-    payload: false,
-  });
 };
 
 export const getWeekdaysForecast = (url, params) => async dispatch => {
-  dispatch({
-    type: SET_LOADING,
-    payload: true,
-  });
-
   const res = await api(url, "GET", params, "owm");
 
   if (res && res.status === 200) {
@@ -115,9 +81,4 @@ export const getWeekdaysForecast = (url, params) => async dispatch => {
       payload: res.data.list,
     });
   }
-
-  dispatch({
-    type: SET_LOADING,
-    payload: false,
-  });
 };

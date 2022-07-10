@@ -19,9 +19,9 @@ const TodaysHighlights = ({ currentMode, currentForecast, astro_data }) => {
     <div className="mt-4">
       <h1 className="lg:text-xl sm:text-lg font-bold dark:text-gray-200 transition-colors">Today's Highlight</h1>
 
-      <div className="grid grid-cols-3 grid-rows-2 gap-4">
+      <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 grid-rows-2 gap-4">
         <TodaysReport title={"UV Index"}>
-          <div className={"lg:w-36 sm:w-20 mx-auto lg:mt-5 sm:mt-10"}>
+          <div className={"w-16 lg:w-36 sm:w-20 mx-auto lg:mt-5 sm:mt-10"}>
             <CircularProgressbar
               className="dark:text-gray-200 transition-colors"
               text={uv}
@@ -48,13 +48,13 @@ const TodaysHighlights = ({ currentMode, currentForecast, astro_data }) => {
           icon={<ImCompass className="lg:w-5 lg:h-5 sm:w-8 sm:h-8 text-blue-600" id="compass" />}
         />
         <TodaysReport title={"Sunrise & Sunset"}>
-          <div className="sm:block lg:text-base sm:text-xs">
+          <div className="flex justify-around sm:block lg:text-base sm:text-xs">
             <div className="flex justify-between items-center">
-              <img src={sunriseIcon} alt="sunrise" className="lg:w-12 sm:w-10" />
+              <img src={sunriseIcon} alt="sunrise" className="w-8 lg:w-12 sm:w-10" />
               <h1 className="font-semibold mt-2 dark:text-gray-200 transition-colors">{sunrise}</h1>
             </div>
             <div className="flex justify-between items-center">
-              <img src={sunsetIcon} alt="sunset" className="lg:w-12 sm:w-10" />
+              <img src={sunsetIcon} alt="sunset" className="w-8 lg:w-12 sm:w-10" />
               <h1 className="font-semibold mt-2 dark:text-gray-200 transition-colors">{sunset}</h1>
             </div>
           </div>

@@ -1,41 +1,12 @@
-import { lazy, useEffect } from "react";
+import { lazy } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { icons } from "../../functions/Icons";
-import {
-  getCurrentAstronomy,
-  getCurrentForecast,
-  getWeekdaysForecast,
-  setCordinates,
-} from "../../Redux/Actions/Actions";
+import { getCurrentAstronomy, getCurrentForecast } from "../../Redux/Actions/Actions";
 
 const SearchInput = lazy(() => import("./SearchInput"));
 
-const Sidebar = ({
-  getCurrentForecast,
-  currentForecast,
-  currentLocation,
-  getCurrentAstronomy,
-  degree_C,
-  cords,
-  setCordinates,
-  getWeekdaysForecast,
-  loading,
-}) => {
-  useEffect(() => {
-    navigator.geolocation.watchPosition(position => {
-      setCordinates([position.coords.latitude, position.coords.longitude]);
-    });
-  }, [setCordinates]);
-
-  useEffect(() => {
-    if (cords.length > 0) {
-      getCurrentForecast("current.json", { q: `${cords[0]},${cords[1]}` });
-      getCurrentAstronomy("astronomy.json", { q: `${cords[0]},${cords[1]}`, dt: moment().format("YYYY-MM-DD") });
-      getWeekdaysForecast("forecast/daily", { lat: cords[0], lon: cords[1] });
-    }
-  }, [cords, getCurrentAstronomy, getCurrentForecast, getWeekdaysForecast]);
-
+const Sidebar = ({ currentForecast, currentLocation, degree_C }) => {
   const { temp_c, temp_f, last_updated, condition, feelslike_c, feelslike_f } = currentForecast;
 
   return (
@@ -90,6 +61,4 @@ const Sidebar = ({
 export default connect(({ app }) => ({ ...app }), {
   getCurrentForecast,
   getCurrentAstronomy,
-  setCordinates,
-  getWeekdaysForecast,
 })(Sidebar);
