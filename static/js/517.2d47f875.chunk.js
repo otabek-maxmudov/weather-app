@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkweather_app=self.webpackChunkweather_app||[]).push([[517],{6517:function(e,n,r){r.r(n);var t=r(2791),a=r(184),u=(0,t.lazy)((function(){return Promise.all([r.e(860),r.e(164),r.e(622)]).then(r.bind(r,9622))})),s=(0,t.lazy)((function(){return Promise.all([r.e(164),r.e(547)]).then(r.bind(r,5547))}));n.default=function(){return(0,a.jsxs)(a.Fragment,{children:[(0,a.jsx)(s,{}),(0,a.jsx)(u,{})]})}}}]);
+//# sourceMappingURL=517.2d47f875.chunk.js.map
