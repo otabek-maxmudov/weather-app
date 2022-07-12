@@ -1,5 +1,4 @@
 import axios from "axios";
-import { message } from "antd";
 
 const wa = "https://api.weatherapi.com/v1/";
 const owm = "https://community-open-weather-map.p.rapidapi.com/";
@@ -25,6 +24,6 @@ export default async (url, method, param, service) => {
       },
     });
   } catch (error) {
-    message.error({ content: error.response.statusText, key: "error" });
+    console.error(error.response.statusText);
   }
 };

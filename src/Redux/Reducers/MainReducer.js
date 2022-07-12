@@ -6,7 +6,6 @@ import {
   SET_ASTRO_DATA,
   SET_WEEKDAYS_FORECAST,
   SET_DEGREE,
-  SET_CORDINATES,
 } from "../Actions/Types";
 
 /* eslint-disable import/no-anonymous-default-export */
@@ -46,7 +45,7 @@ export default (state = initialState, action) => {
     case SET_ASTRO_DATA:
       return {
         ...state,
-        astro_data: action.payload ? { ...action.payload } : {},
+        astro_data: action.payload || {},
       };
     case SET_WEEKDAYS_FORECAST:
       return {
@@ -57,11 +56,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         degree_C: action.payload,
-      };
-    case SET_CORDINATES:
-      return {
-        ...state,
-        cords: action.payload,
       };
 
     default:

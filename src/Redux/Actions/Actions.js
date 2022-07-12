@@ -7,7 +7,6 @@ import {
   SET_ASTRO_DATA,
   SET_WEEKDAYS_FORECAST,
   SET_DEGREE,
-  SET_CORDINATES,
 } from "./Types";
 
 export const getCurrentForecast = (url, params) => async dispatch => {
@@ -50,13 +49,6 @@ export const setCurrentMode = data => dispatch => {
 export const setDegreeMode = data => dispatch => {
   dispatch({
     type: SET_DEGREE,
-    payload: data,
-  });
-};
-
-export const setCordinates = data => dispatch => {
-  dispatch({
-    type: SET_CORDINATES,
     payload: data,
   });
 };
