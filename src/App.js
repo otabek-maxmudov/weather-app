@@ -1,6 +1,6 @@
 import { Spin } from "antd";
 import moment from "moment";
-import { lazy, Suspense, useCallback, useEffect } from "react";
+import { lazy, memo, Suspense, useCallback, useEffect } from "react";
 import { RiLoader2Fill } from "react-icons/ri";
 import { connect } from "react-redux";
 import { getCurrentAstronomy, getCurrentForecast, getWeekdaysForecast } from "./Redux/Actions/Actions";
@@ -40,4 +40,4 @@ export default connect(({ app }) => ({ ...app }), {
   getCurrentAstronomy,
   getCurrentForecast,
   getWeekdaysForecast,
-})(App);
+})(memo(App));

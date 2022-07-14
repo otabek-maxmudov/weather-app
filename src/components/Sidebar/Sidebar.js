@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, memo } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
 import { icons } from "../../functions/Icons";
@@ -18,7 +18,7 @@ const Sidebar = ({ currentForecast, currentLocation, degree_C }) => {
         alt="weather icon"
       />
       <div className="w-48 md:w-60 sm:w-full">
-        <div>
+        <>
           {degree_C ? (
             <p className="text-4xl md:text-6xl relative mb-6">
               {temp_c?.toFixed()} &#176; <sup className="absolute top-1 text-3xl md:text-4xl">C</sup>
@@ -32,7 +32,7 @@ const Sidebar = ({ currentForecast, currentLocation, degree_C }) => {
             {moment().format("dddd")},{" "}
             <span className="text-gray-400">{last_updated && moment(last_updated).format("H:MM")}</span>
           </p>
-        </div>
+        </>
         <div className="border-t pt-4 text-xs md:text-sm">
           <div className="flex justify-between">
             <p className="font-semibold">Condition: </p>
@@ -61,4 +61,4 @@ const Sidebar = ({ currentForecast, currentLocation, degree_C }) => {
 export default connect(({ app }) => ({ ...app }), {
   getCurrentForecast,
   getCurrentAstronomy,
-})(Sidebar);
+})(memo(Sidebar));

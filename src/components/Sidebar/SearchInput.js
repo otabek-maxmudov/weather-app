@@ -8,6 +8,7 @@ import {
   getSearchResult,
   getWeekdaysForecast,
 } from "../../Redux/Actions/Actions";
+import { memo } from "react";
 
 const SearchInput = ({
   getCurrentForecast,
@@ -47,4 +48,4 @@ export default connect(({ app }) => ({ ...app }), {
   getSearchResult,
   getCurrentAstronomy,
   getWeekdaysForecast,
-})(SearchInput);
+})(memo(SearchInput));
